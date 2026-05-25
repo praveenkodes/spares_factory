@@ -33,7 +33,10 @@ st.markdown("""
 
 # --- STATE MANAGEMENT ---
 if 'db' not in st.session_state:
+    # Initialize with typed columns so Pandas doesn't trip when it's empty
     st.session_state.db = pd.DataFrame(columns=['Timestamp', 'Temperature'])
+    st.session_state.db['Timestamp'] = pd.to_datetime(st.session_state.db['Timestamp'])
+
 if 'running' not in st.session_state:
     st.session_state.running = False
 
