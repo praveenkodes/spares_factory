@@ -15,7 +15,9 @@ from reportlab.lib.units import inch
 # --- PAGE CONFIG & THEME ---
 st.set_page_config(
     page_title="Spar Factory Dashboard",
-    page_icon="🌡️"
+    page_icon="🌡️",
+        layout="wide",
+    initial_sidebar_state="expanded"
 )
 
 # Custom CSS for an industrial dark mode premium aesthetic
