@@ -31,15 +31,24 @@ st.markdown("""
     .stButton>button:hover { background-color: #3ca096; color: white; }
     
     /* --- HIDE STREAMLIT DECORATIONS --- */
-    #MainMenu {visibility: hidden;}         /* Hides the default menu button */
-    header {visibility: hidden;}            /* Hides the top white/dark header bar completely */
-    footer {visibility: hidden;}            /* Hides the default footer "Made with Streamlit" text */
-    div[data-testid="stDecoration"] {display:none;} /* Hides the top colored accent line */
+    #MainMenu { visibility: hidden !important; }                                 /* Keeps your Main Menu hidden */
+    header { visibility: hidden !important; display: none !important; }         /* Removes top GitHub Fork icon bar */
+    footer { visibility: hidden !important; display: none !important; }         /* Removes Streamlit logo footer */
+    div[data-testid="stDecoration"] { display: none !important; }               /* Removes top colored border line */
     
-    /* Optional: Tighten up top padding left over after hiding the header */
+    /* Target the new Streamlit Cloud bottom action/status toolbars explicitly (Profile & Crown icon) */
+    div[data-testid="stStatusWidget"] { visibility: hidden !important; display: none !important; height: 0px !important; }
+    div[data-testid="stToolbar"] { visibility: hidden !important; display: none !important; height: 0px !important; }
+    .stAppDeployButton { display: none !important; }
+    
+    /* Force hide any remaining viewer cloud footer wraps at the bottom screen bounds */
+    div[class*="stViewerFooter"] { visibility: hidden !important; display: none !important; height: 0px !important; }
+    div[class*="ViewerFooter"] { visibility: hidden !important; display: none !important; height: 0px !important; }
+    
+    /* Optimize viewing padding for tighter mobile layout boundaries */
     .block-container {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 0rem !important;
     }
     </style>
     """, unsafe_allow_html=True)
