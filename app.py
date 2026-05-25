@@ -23,11 +23,24 @@ st.set_page_config(
 # Custom CSS for an industrial dark mode premium aesthetic
 st.markdown("""
     <style>
+    /* Base styling */
     .main { background-color: #111625; color: #FFFFFF; }
     div[data-testid="stMetricValue"] { color: #4DB6AC !important; font-size: 28px; font-weight: bold; }
     div[data-testid="stMetricLabel"] { color: #AEB7C2 !important; }
     .stButton>button { background-color: #4DB6AC; color: white; border-radius: 6px; width: 100%; }
     .stButton>button:hover { background-color: #3ca096; color: white; }
+    
+    /* --- HIDE STREAMLIT DECORATIONS --- */
+    #MainMenu {visibility: hidden;}         /* Hides the default menu button */
+    header {visibility: hidden;}            /* Hides the top white/dark header bar completely */
+    footer {visibility: hidden;}            /* Hides the default footer "Made with Streamlit" text */
+    div[data-testid="stDecoration"] {display:none;} /* Hides the top colored accent line */
+    
+    /* Optional: Tighten up top padding left over after hiding the header */
+    .block-container {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
